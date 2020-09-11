@@ -1,2 +1,2 @@
 #!/bash/bin
-su betty
+su betty"\n"
