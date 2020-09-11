@@ -1,0 +1,4 @@
+#!/bin/bash
+git add .
+git commit -m "This was automated by a simple script hehe"
+git push
