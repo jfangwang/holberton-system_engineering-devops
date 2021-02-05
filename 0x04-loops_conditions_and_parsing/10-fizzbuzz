@@ -2,15 +2,15 @@
 # This script is displaying "Holberton School" 10 times
 for a in {1..100}
 do
-	if (($a%5 == 0)) && (($a%3==0)); then
+	if ((a%5 == 0)) && ((a%3==0)); then
 		echo FizzBuzz
 		continue
 	fi
-	if (($a%3 == 0)); then
+	if ((a%3 == 0)); then
 		echo Fizz
 		continue
 	fi
-	if (($a%5 == 0)); then
+	if ((a%5 == 0)); then
 		echo Buzz
 		continue
 	fi
