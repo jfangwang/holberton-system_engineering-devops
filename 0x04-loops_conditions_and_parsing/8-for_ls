@@ -1,10 +1,5 @@
 #!/bin/bash
 # This script is displaying "Holberton School" 10 times
-for hour in {1..12}
-do
-	echo Hour: $hour
-	for min in {1..59}
-	do
-		echo $min
-	done
+for a in *;do
+	echo "$a" | cut -d '-' -f2
 done
