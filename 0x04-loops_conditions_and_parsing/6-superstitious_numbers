@@ -2,16 +2,16 @@
 # This script is displaying "Holberton School" 10 times
 for i in {1..20}
 do
-	echo $i
+	echo "$i"
 	case $i in
 		"4")
-			echo bad luck from China
+			echo "bad luck from China"
 		;;
 		"9")
-			echo bad luck from Japan
+			echo "bad luck from Japan"
 		;;
 		"17")
-			echo bad luck from Italy
+			echo "bad luck from Italy:
 		;;
 	esac
 done

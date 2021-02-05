@@ -2,9 +2,9 @@
 # This script is displaying "Holberton School" 10 times
 for hour in {1..12}
 do
-	echo Hour: $hour
+	echo "Hour: $hour"
 	for min in {1..59}
 	do
-		echo $min
+		echo "$min"
 	done
 done
