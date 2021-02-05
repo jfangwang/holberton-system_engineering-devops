@@ -15,5 +15,5 @@ do
 	then
 		echo "Holberton School"
 	fi
-	((i++))
+	((i += 1))
 done
