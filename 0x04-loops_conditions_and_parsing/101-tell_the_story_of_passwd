@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times
 while IFS=: read -r f1 f2 _ f4 f5 f6 f7
 do 
