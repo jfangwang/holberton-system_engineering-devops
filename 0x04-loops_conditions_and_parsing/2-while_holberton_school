@@ -1,0 +1,9 @@
+#!/bin/bash
+# This script is displaying "Holberton School" 10 times
+i=0
+a=10
+while (("$i" < "$a"))
+do
+	echo "Holberton School"
+	i=$((i+1))
+done
