@@ -1,3 +1,2 @@
 #!/usr/bin/env ruby
-/Holberton/
-puts ARGV[0].scan(/hbn{0,4}/)
+puts ARGV[0].scan(/hbt{0,4}n/).join

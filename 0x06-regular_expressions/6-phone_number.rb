@@ -1,3 +1,2 @@
 #!/usr/bin/env ruby
-/Holberton/
-puts ARGV[0].scan(/\d{1,10}/)
+puts ARGV[0].scan(/^[0-9]{10}/).join
