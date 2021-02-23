@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+cp /etc/hosts ~/hosts.new
+sed 127.0.0.2 ~/hosts.new >> echo 
+cp -f ~/hosts.new /etc/hosts
