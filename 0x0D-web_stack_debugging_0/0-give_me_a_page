@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Apache was not started
+service apache2 start
