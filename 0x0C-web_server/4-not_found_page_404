@@ -5,15 +5,9 @@ sudo apt -y update
 sudo apt -y install nginx
 sudo ufw allow "Nginx HTTP"
 sudo sh -c 'echo "Holberton School" > /var/www/html/index.nginx-debian.html'
-# LINK="https://www.youtube.com/watch?v=5qjnDd1rsII"
-# LINK="https://www.youtube.com/watch?v=Xqamnbm-ZLA"
 sudo sed -i '/server_name _;/a \\tlocation /redirect_me {return 301 https://www.youtube.com/watch?v=5qjnDd1rsII;}'
 /etc/nginx/sites-available/default
-# Create the file
 sudo touch /var/www/html/404.html
 sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
-# Referenece file in config file
 sudo sed -i '/redirect_me/a \\terror_page 404 /404.html;' /etc/nginx/sites-available/default
-# sudo sed -i '/error_page 404/a \\tlocation = /404.html {root /usr/share/nginx/html; internal;}'
-# /etc/nginx/sites-available/default
 sudo service nginx restart
