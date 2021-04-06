@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # 404 page not found
-
 sudo apt -y update
 sudo apt -y install nginx
 sudo ufw allow "Nginx HTTP"
@@ -9,5 +8,5 @@ sudo sed -i '/server_name _;/a \\tlocation /redirect_me {return 301 https://www.
 /etc/nginx/sites-available/default
 sudo touch /var/www/html/404.html
 sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
-sudo sed -i '/redirect_me/a \\terror_page 404 /404.html;' /etc/nginx/sites-available/default
+sudo sed -i '/:80 default_server;/a \\terror_page 404 /404.html;' /etc/nginx/sites-available/default
 sudo service nginx restart
