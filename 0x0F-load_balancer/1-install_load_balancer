@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Installing HA Proxy
+sudo apt-get -y update
+sudo apt-get -y install software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-1.8
+sudo apt-get -y update
+sudo apt-get install haproxy=1.8.\*
+sudo chmod 777 /etc/haproxy/haproxy.cfg
+sudo echo "frontend web-frontend" >> /etc/haproxy/haproxy.cfg
+sudo echo -e "\tbind *:80" >> /etc/haproxy/haproxy.cfg
+sudo echo -e "\tstats uri /haproxy?stats" >> /etc/haproxy/haproxy.cfg   
+sudo echo -e "\tdefault_backend web-backend" >> /etc/haproxy/haproxy.cfg
+sudo echo -e "" >> /etc/haproxy/haproxy.cfg
+sudo echo -e "backend web-backend" >> /etc/haproxy/haproxy.cfg
+sudo echo -e "\tbalance roundrobin" >> /etc/haproxy/haproxy.cfg
+sudo echo -e "\tserver web-01 34.75.56.162 check" >> /etc/haproxy/haproxy.cfg
+sudo echo -e "\tserver web-01 35.237.17.44 check" >> /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
