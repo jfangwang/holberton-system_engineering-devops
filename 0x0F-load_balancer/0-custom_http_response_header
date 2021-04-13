@@ -7,11 +7,11 @@ echo y | sudo ufw enable
 # index setup
 sudo sh -c 'echo "Holberton School" > /var/www/html/index.nginx-debian.html'
 # Redirect setup
-sudo sed -i "/server_name _;/a \\tlocation /redirect_me {return 301 https://www.youtube.com/watch?v=5qjnDd1rsII;}" /etc/nginx/sites-available/default
+sudo sed -i "/listen [::]:80;/a \\tlocation /redirect_me {return 301 https://www.youtube.com/watch?v=5qjnDd1rsII;}" /etc/nginx/sites-available/default
 # 404 setup
 sudo touch /var/www/html/404.html
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
-sed -i "/server_name _;/a \\terror_page 404 /404.html;" /etc/nginx/sites-enabled/default
+sed -i "/listen [::]:80;/a \\terror_page 404 /404.html;" /etc/nginx/sites-enabled/default
 # Custom Header setup
-sudo sed -i "/server_name _;/a \\tadd_header X-Served-By $hostname;" /etc/nginx/sites-available/default
+sudo sed -i "/listen [::]:80;/a \\tadd_header X-Served-By $hostname;" /etc/nginx/sites-available/default
 sudo service nginx restart
