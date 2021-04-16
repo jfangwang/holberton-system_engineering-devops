@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # www
 
-sub=(www lb-01 web-01 web-02)
+sub=( www lb-01 web-01 web-02)
 
-if [ $# -eq 1 ]
+if [ $# -eq 1 ];
 then
     for item in "${sub[@]}"
     do
@@ -12,7 +12,7 @@ then
         printf "The subdomain %s is a %s record and points to %s\n" "$item" "$r" "$dig" 
     done
 fi
-if [ $# -eq 2 ]
+if [ $# -eq 2 ];
 then
     dig="$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk '{ printf $5 }')"
     r="$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk '{ printf $4 }')"
