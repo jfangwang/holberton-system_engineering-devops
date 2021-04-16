@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # www
 
-sub=( www lb-01 web-01 web-02)
+sub_dom=( www lb-01 web-01 web-02)
 
 if [ $# -eq 1 ];
 then
-    for item in "${sub[@]}"
+    for item in "${sub_dom[@]}"
     do
-        dig="$(dig "$sub"."$1" | grep -A1 'ANSWER SECTION:' | awk '{ printf $5 }')"
-        r="$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk '{ printf $4 }')"
+        dig="$(dig "$item"."$1" | grep -A1 'ANSWER SECTION:' | awk '{ printf $5 }')"
+        r="$(dig "$item"."$1" | grep -A1 'ANSWER SECTION:' | awk '{ printf $4 }')"
         printf "The subdomain %s is a %s record and points to %s\n" "$item" "$r" "$dig" 
     done
 fi
