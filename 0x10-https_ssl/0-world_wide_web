@@ -8,11 +8,13 @@ then
     for item in "${sub[@]}"
     do
         dig="$(dig "$sub"."$1" | grep -A1 'ANSWER SECTION:' | awk '{ printf $5 }')"
-        printf "The subdomain %s is a A record and points to %s\n" "$item" "$dig" 
+        r="$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk '{ printf $4 }')"
+        printf "The subdomain %s is a %s record and points to %s\n" "$item" "$r" "$dig" 
     done
 fi
 if [ $# -eq 2 ]
 then
     dig="$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk '{ printf $5 }')"
-    printf "The subdomain %s is a A record and points to %s\n" "$2" "$dig" 
+    r="$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk '{ printf $4 }')"
+    printf "The subdomain %s is a %s record and points to %s\n" "$2" "$r" "$dig" 
 fi
