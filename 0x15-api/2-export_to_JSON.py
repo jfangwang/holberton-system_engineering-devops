@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+"""task 2"""
+import json
 import requests
 from sys import argv
-import json
+
 
 if __name__ == "__main__":
     if len(argv) == 2:

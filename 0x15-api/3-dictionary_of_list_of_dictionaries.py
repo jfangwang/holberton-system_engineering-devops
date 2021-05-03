@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+"""task 3"""
+import json
 import requests
 from sys import argv
-import json
+
 
 if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/users"

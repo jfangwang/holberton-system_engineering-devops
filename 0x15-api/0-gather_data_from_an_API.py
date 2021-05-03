@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-import requests
+"""task 0"""
 from sys import argv
+import requests
+
 
 if __name__ == "__main__":
     if len(argv) == 2:
@@ -22,8 +24,10 @@ if __name__ == "__main__":
                 task_count += 1
                 if str(item['completed']) == 'True':
                     task_completed += 1
-        print("Employee {} is done with tasks({}/{}):".format(name, task_completed, task_count))
+        print("Employee {} is done with tasks({}/{}):"
+              .format(name, task_completed, task_count))
         # print out the tasks
         for item in r:
-            if str(item['userId']) == user_id and str(item['completed']) == 'True':
+            if str(item['userId']) == user_id and\
+               str(item['completed']) == 'True':
                 print("\t {}".format(item['title']))

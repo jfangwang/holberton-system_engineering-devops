@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-import requests
-from sys import argv
+"""task 1"""
 import csv
+from sys import argv
+import requests
 
 if __name__ == "__main__":
     if len(argv) == 2:
@@ -21,11 +22,16 @@ if __name__ == "__main__":
         for item in r:
             if str(item['userId']) == user_id:
                 task_count += 1
-            if str(item['userId']) == user_id and str(item['completed']) == 'True':
+            if str(item['userId']) == user_id and\
+               str(item['completed']) == 'True':
                 task_completed += 1
         with open('2.csv', mode='w') as employee_file:
-            employee_writer = csv.writer(employee_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+            employee_writer = csv.writer(employee_file,
+                                         delimiter=',',
+                                         quotechar='"',
+                                         quoting=csv.QUOTE_ALL)
             for item in r:
                 if str(item['userId']) == user_id:
-                    #"2","Antonette","False","suscipit repellat esse quibusdam voluptatem incidunt"
-                    employee_writer.writerow([user_id, user_name, str(item['completed']), str(item['title'])])
+                    employee_writer.writerow([user_id, user_name,
+                                             str(item['completed']),
+                                             str(item['title'])])
