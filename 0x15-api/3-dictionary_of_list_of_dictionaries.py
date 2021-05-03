@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
         for d in r:
             # Titles, Completed, Username
-            if d['userId'] == count:
+            if str(d['userId']) == user_id:
                 temp_dict = {}
                 temp_dict['task'] = d['title']
                 temp_dict['username'] = user_name
