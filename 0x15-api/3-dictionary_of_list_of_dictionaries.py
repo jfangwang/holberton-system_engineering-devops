@@ -23,12 +23,11 @@ if __name__ == "__main__":
         willy_list = []
         for d in r:
             # Titles, Completed, Username
-            if str(d['userId']) == user_id:
-                temp_dict = {}
-                temp_dict['task'] = d['title']
-                temp_dict['username'] = user_name
-                temp_dict['completed'] = d['completed']
-                willy_list.append(temp_dict)
+            temp_dict = {}
+            temp_dict['task'] = d['title']
+            temp_dict['username'] = user_name
+            temp_dict['completed'] = d['completed']
+            willy_list.append(temp_dict)
         mega_dict[user_id] = willy_list
         with open('{}.json'.format(user_id), 'w') as json_file:
             json.dump(mega_dict, json_file)
