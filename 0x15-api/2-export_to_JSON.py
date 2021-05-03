@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import requests
 from sys import argv
+import csv
 
 if __name__ == "__main__":
     if len(argv) == 2:
@@ -13,17 +14,18 @@ if __name__ == "__main__":
         # Get the user name with user id
         for item in r:
             if str(item['id']) == user_id:
-                name = str(item['name'])
+                user_name = str(item['username'])
         url = "https://jsonplaceholder.typicode.com/todos"
         r = requests.get(url).json()
-        # count tasks
+        # Count tasks
         for item in r:
             if str(item['userId']) == user_id:
                 task_count += 1
-                if str(item['completed']) == 'True':
-                    task_completed += 1
-        print("Employee {} is done with tasks({}/{}):".format(name, task_completed, task_count))
-        # print out the tasks
-        for item in r:
             if str(item['userId']) == user_id and str(item['completed']) == 'True':
-                print("\t {}".format(item['title']))
+                task_completed += 1
+        with open('2.csv', mode='w') as employee_file:
+            employee_writer = csv.writer(employee_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+            for item in r:
+                if str(item['userId']) == user_id:
+                    #"2","Antonette","False","suscipit repellat esse quibusdam voluptatem incidunt"
+                    employee_writer.writerow([user_id, user_name, str(item['completed']), str(item['title'])])
