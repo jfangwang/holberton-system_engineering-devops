@@ -25,7 +25,7 @@ if __name__ == "__main__":
             if str(item['userId']) == user_id and\
                str(item['completed']) == 'True':
                 task_completed += 1
-        with open('2.csv', mode='w') as employee_file:
+        with open('{}.csv'.format(str(user_id)), mode='w') as employee_file:
             employee_writer = csv.writer(employee_file,
                                          delimiter=',',
                                          quotechar='"',
