@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """task 1"""
 import csv
-from sys import argv
 import requests
+from sys import argv
 
 if __name__ == "__main__":
     if len(argv) == 2:
