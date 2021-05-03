@@ -12,10 +12,9 @@ if __name__ == "__main__":
     task_count = 0
     task_completed = 0
     mega_dict = {}
+    count = 1
     # Get the user name with user id
     for item in r:
-        url = "https://jsonplaceholder.typicode.com/users"
-        r = requests.get(url).json()
         user_id = str(item['id'])
         user_name = str(item['username'])
         # Get Data
@@ -23,13 +22,16 @@ if __name__ == "__main__":
         r = requests.get(url).json()
         temp_dict = {}
         willy_list = []
+
         for d in r:
             # Titles, Completed, Username
-            temp_dict = {}
-            temp_dict['task'] = d['title']
-            temp_dict['username'] = user_name
-            temp_dict['completed'] = d['completed']
-            willy_list.append(temp_dict)
+            if d['userId'] == count:
+                temp_dict = {}
+                temp_dict['task'] = d['title']
+                temp_dict['username'] = user_name
+                temp_dict['completed'] = d['completed']
+                willy_list.append(temp_dict)
         mega_dict[user_id] = willy_list
+        count += 1
     with open('todo_all_employees.json', 'w') as json_file:
         json.dump(mega_dict, json_file)
