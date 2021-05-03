@@ -3,7 +3,6 @@
 from sys import argv
 import requests
 
-
 if __name__ == "__main__":
     if len(argv) == 2:
         user_id = str(argv[1])
