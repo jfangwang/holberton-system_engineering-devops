@@ -7,7 +7,7 @@ from sys import argv
 
 if __name__ == "__main__":
     if len(argv) == 2:
-        user_id = str(argv[1])
+        user_id = argv[1]
         url = "https://jsonplaceholder.typicode.com/users"
         r = requests.get(url).json()
         name = "Willy"
@@ -16,7 +16,7 @@ if __name__ == "__main__":
         # Get the user name with user id
         for item in r:
             if str(item['id']) == user_id:
-                user_name = str(item['username'])
+                user_name = item['username']
         # Get Data
         url = "https://jsonplaceholder.typicode.com/todos"
         r = requests.get(url).json()
