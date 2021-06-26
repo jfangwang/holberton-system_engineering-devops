@@ -10,7 +10,7 @@ def top_ten(subreddit):
     h = {
         'User-Agent': 'Python/1.0(Holberton Project)'
     }
-    req = requests.get(url, headers=h)
+    req = requests.get(url, headers=h, allow_redirects=False)
     count = 0
 
     posts = req.json()['data']['children']
