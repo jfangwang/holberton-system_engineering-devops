@@ -22,7 +22,6 @@ def recurse(subreddit, hot_list=[], after='null'):
 
     for item in posts:
         hot_list.append(item['data']['title'])
-    print(len(hot_list))
     if after not in ["NULL", 'null', None, "None"]:
         return recurse(subreddit, hot_list, after)
     else:
