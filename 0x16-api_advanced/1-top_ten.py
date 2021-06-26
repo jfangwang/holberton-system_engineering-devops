@@ -18,6 +18,6 @@ def top_ten(subreddit):
         print(None)
     else:
         for item in posts:
-            if count < 10:
+            if count < 11:
                 count = count + 1
                 print(item['data']['title'])
