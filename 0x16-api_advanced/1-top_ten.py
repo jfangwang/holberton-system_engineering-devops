@@ -10,17 +10,15 @@ def top_ten(subreddit):
     h = {
         'User-Agent': 'Python/1.0(Holberton Project)'
     }
-    req = requests.get(url, headers=h, allow_redirects=False)
+    limit = {'limit': 10}
+    req = requests.get(url, headers=h, allow_redirects=False, params=limit)
     count = 0
 
-    posts = req.json()['data']['children']
-    if posts == []:
+    try:
+        posts = req.json()['data']['children']
+        for item in posts:
+            if count < 10:
+                count = count + 1
+                print(item['data']['title'])
+    except:
         print(None)
-    else:
-        try:
-            for item in posts:
-                if count < 10:
-                    count = count + 1
-                    print(item['data']['title'])
-        except:
-            print(None)
