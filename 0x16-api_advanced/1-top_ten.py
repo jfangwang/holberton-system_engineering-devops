@@ -15,7 +15,7 @@ def top_ten(subreddit):
 
     posts = req.json()['data']['children']
     if posts == []:
-        print("None")
+        print(None)
     else:
         for item in posts:
             if count < 10:
