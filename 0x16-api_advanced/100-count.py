@@ -23,7 +23,7 @@ def count_words(subreddit, word_list, after='null', count_list=[]):
         after = req.json()['data']['after']
         posts = req.json()['data']['children']
     except:
-        return None
+        return
 
     # Gets all title names from Query
     for item in posts:
@@ -35,5 +35,6 @@ def count_words(subreddit, word_list, after='null', count_list=[]):
         return count_words(subreddit, word_list, after, count_list)
     else:
         my_dict = {i: count_list.count(i) for i in count_list}
-        print(my_dict)
-        return count_list
+        for key, value in my_dict.items():
+            print("{}: {}".format(key, value))
+    return
