@@ -6,11 +6,11 @@ import requests
 
 def count_words(subreddit, word_list, after='null', count_list=[]):
     """Returns Number of Subs"""
-    # Convert word_list to set
-    temp = []
-    for w in word_list:
-        temp.append(w.lower())
-    word_list = set(temp)
+    # Convert word_list to set to remove duplicates
+    # temp = []
+    # for w in word_list:
+    #     temp.append(w.lower())
+    # word_list = set(temp)
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     h = {
         'User-Agent': 'Python/1.0(Holberton Project)'
