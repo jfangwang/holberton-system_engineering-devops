@@ -35,6 +35,7 @@ def count_words(subreddit, word_list, after='null', count_list=[]):
         return count_words(subreddit, word_list, after, count_list)
     else:
         my_dict = {i: count_list.count(i) for i in count_list}
+        my_dict = {k: v for k, v in sorted(my_dict.items(), key=lambda item: item[1])}
         for key, value in my_dict.items():
             print("{}: {}".format(key, value))
     return
